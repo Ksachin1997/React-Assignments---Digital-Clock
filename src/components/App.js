@@ -18,7 +18,11 @@ class App extends Component {
     }
 
     componentDidMount(){
-        setInterval(() => this.update(),1000);
+        this.timerId = setInterval(() => this.update(),1000);
+    }
+
+    componentWillUnmount(){
+        clearInterval(this.timerId);
     }
 
     render() {
